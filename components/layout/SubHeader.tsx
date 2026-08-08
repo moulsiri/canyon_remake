@@ -24,7 +24,7 @@ const SubHeader = () => {
                 <div className="relative w-[30px] h-[20px] z-[100]">
                   <span
                     className={`absolute left-0 block h-[2px] w-full
-                      transition-all duration-1000 bg-[var(--background)] top-[9px]
+                      transition-all duration-1000 bg-[var(--foreground)] top-[9px]
                       ease-[cubic-bezier(0.76,0,0.24,1)]
                       ${
                         isActive
@@ -36,7 +36,7 @@ const SubHeader = () => {
 
                   <span
                     className={`absolute left-0 block h-[2px] w-full
-                      transition-all duration-1000 bg-[var(--background)] top-[9px]
+                      transition-all duration-1000 bg-[var(--foreground)] top-[9px]
                       ease-[cubic-bezier(0.76,0,0.24,1)]
                       ${
                         isActive

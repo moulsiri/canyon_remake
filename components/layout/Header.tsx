@@ -1,8 +1,10 @@
+"use client"
 import Link from "next/link";
 import Logo from "@/components/ui/Logo";
 import FadeIn from "@/components/animations/FadeIn";
 import SubHeader from "./SubHeader";
 import OpenSubHeaderButton from "./OpenSubHeaderButton";
+import { useGlobalContext } from "@/context/GlobalContext";
 
 export default function Header({ 
   containerClass = "absolute",
@@ -13,6 +15,8 @@ export default function Header({
   logoClass?: string;
   isGlobal?: boolean;
 }) {
+  const { setIsBookingModalOpen } = useGlobalContext();
+
   return (
     <>
       <header className={`${containerClass} top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 w-full transition-all duration-300 ${
@@ -48,12 +52,12 @@ export default function Header({
           >
             (866)494-9279
           </a>
-          <Link
-            href="#"
+          <button
+            onClick={() => setIsBookingModalOpen(true)}
             className="bg-[#b35930] hover:bg-[#964a27] transition-colors text-white px-8 py-3.5 text-xs tracking-widest uppercase font-medium"
           >
             Book Now
-          </Link>
+          </button>
         </FadeIn>
       </header>
     </>

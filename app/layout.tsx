@@ -4,6 +4,7 @@ import "./globals.css";
 import SmoothScroll from "@/components/animations/SmoothScroll";
 import GlobalContextProvider from "@/context/GlobalContext";
 import SubHeader from "@/components/layout/SubHeader";
+import BookingModal from "@/components/ui/BookingModal";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -40,6 +41,7 @@ export default function RootLayout({
         >
           <SmoothScroll>{children}</SmoothScroll>
           <SubHeader />
+          <BookingModal />
         </body>
       </html>
     </GlobalContextProvider>

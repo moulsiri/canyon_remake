@@ -19,6 +19,8 @@ type GlobalContextType = {
 
   isActive: boolean;
   setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
+  isBookingModalOpen: boolean;
+  setIsBookingModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 // 2. Create context with undefined default
@@ -42,6 +44,7 @@ export default function GlobalContextProvider({
   children: React.ReactNode;
 }) {
   const [isActive, setIsActive] = useState(false);
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [loadedCount, setLoadedCount] = useState<number>(0);
   const totalContent = 7 + 9;
@@ -76,6 +79,8 @@ export default function GlobalContextProvider({
         isMobile,
         isActive,
         setIsActive,
+        isBookingModalOpen,
+        setIsBookingModalOpen,
       }}
     >
       {children}

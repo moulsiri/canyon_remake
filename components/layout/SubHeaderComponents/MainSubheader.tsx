@@ -12,7 +12,7 @@ const MainSubheader = () => {
       initial="initial"
       animate="enter"
       exit="exit"
-      className="overflow-hidden absolute w-full top-0 bg-[var(--foreground)]"
+      className="overflow-hidden absolute w-full top-0 bg-[var(--background)]"
     >
       <div className="h-[60vh]"></div>
     </motion.div>
