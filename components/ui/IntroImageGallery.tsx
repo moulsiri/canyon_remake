@@ -3,9 +3,10 @@ import React from "react";
 
 const IntroImageGallery = () => {
   return (
-    <div className="mt-55 w-full">
-      <div>
-        <div className="w-full aspect-[16/9] md:aspect-[21/9] relative  shadow-2xl bg-yellow-200 flex flex-col-reverse ">
+    <div className="mt-12 md:mt-60 w-full">
+      {/* Desktop/Tablet Layout */}
+      <div className="hidden lg:block">
+        <div className="w-full aspect-[16/9] md:aspect-[21/9] relative shadow-2xl bg-yellow-200 flex flex-col-reverse">
           <div className="absolute bg-gradient-to-r from-white to-transparent w-1/2 h-full top-0 left-0 z-10 pointer-events-none"></div>
 
           {/* Main Background Image */}
@@ -67,6 +68,32 @@ const IntroImageGallery = () => {
               Discover Canyon Ranch
             </button>
           </div>
+        </div>
+      </div>
+
+      {/* Mobile/Tablet Fallback Layout */}
+      <div className="block lg:hidden flex flex-col gap-10 w-full px-2">
+        <div className="relative w-full aspect-[4/5] overflow-hidden rounded-xl shadow-2xl bg-stone-200">
+          <Image
+            src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?q=80&w=1742&auto=format&fit=crop"
+            alt="Resort image"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+
+        <div className="flex flex-col items-center text-center px-4">
+          <p className="text-stone-800 dark:text-stone-200 text-sm font-medium leading-loose tracking-wide mb-8">
+            At Canyon Ranch, Health Becomes Personal. Guided By Science,
+            Inspired By Nature, And Shaped Around You, Every Experience Is
+            Designed To Help You Feel Better, Live Better, And Carry That
+            Feeling Home.
+          </p>
+
+          <button className="text-xs font-semibold uppercase tracking-widest text-[#b35930] border border-[#b35930] px-8 py-3 rounded-sm transition-colors hover:bg-[#b35930] hover:text-white">
+            Discover Canyon Ranch
+          </button>
         </div>
       </div>
     </div>

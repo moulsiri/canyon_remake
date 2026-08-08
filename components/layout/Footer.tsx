@@ -45,13 +45,13 @@ const Footer = () => {
 
   return (
     <div 
-      className="relative w-full overflow-hidden" 
-      style={{ height: footerHeight || "auto" }}
+      className="relative w-full lg:h-[var(--footer-height)] h-auto overflow-hidden" 
+      style={{ '--footer-height': `${footerHeight}px` } as React.CSSProperties}
     >
-      <div className="fixed bottom-0 left-0 w-full z-[-1] pointer-events-auto">
+      <div className="static lg:fixed lg:bottom-0 lg:left-0 w-full lg:z-[-1] pointer-events-auto">
         <footer 
           ref={innerRef}
-          className="w-full bg-[#F4F4F1] dark:bg-stone-950 pt-16 md:pt-24 pb-8 flex flex-col items-center"
+          className="w-full bg-[#F4F4F1] dark:bg-stone-950 pt-28 md:pt-32 pb-8 flex flex-col items-center"
         >
           <div className="w-full max-w-[1400px] px-6 md:px-12 flex flex-col items-center">
             {/* LOGO */}
@@ -65,7 +65,7 @@ const Footer = () => {
             </div>
 
             {/* 4-COLUMN LINK GRID */}
-            <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8 mb-20 text-left">
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-16 md:mb-20 text-left">
               
               {/* COLUMN 1: RESERVATIONS */}
               <div className="flex flex-col gap-5">

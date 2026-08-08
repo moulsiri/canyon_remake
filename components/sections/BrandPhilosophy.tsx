@@ -33,8 +33,8 @@ export default function BrandPhilosophy() {
         </h2>
      
         <IntroImageGallery/>
-        {/* Spacer to stretch SecondSection's height so it properly contains the absolutely positioned images dangling out of the gallery */}
-        <div className="w-full h-48 md:h-80"></div>
+        {/* Spacer to stretch section height for absolutely positioned desktop images */}
+        <div className="hidden lg:block w-full h-80"></div>
       </div>
     </section>
   );

@@ -37,7 +37,7 @@ export default function RootLayout({
       >
         <body
           style={{ fontFamily: "var(--font-montserrat)" }}
-          className="antialiased bg-black text-white selection:bg-white/20"
+          className="antialiased bg-black text-white selection:bg-white/20 overflow-x-hidden"
         >
           <SmoothScroll>{children}</SmoothScroll>
           <SubHeader />

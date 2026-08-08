@@ -31,7 +31,7 @@ export default function Hero() {
         </FadeIn>
         
         <FadeIn delay={0.9} yOffset={25}>
-          <h1 className="text-6xl md:text-8xl lg:text-[80px] leading-[0.9] text-white mb-6" style={{ fontFamily: "var(--font-cormorant)" }}>
+          <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-[80px] leading-[0.9] text-white mb-6" style={{ fontFamily: "var(--font-cormorant)" }}>
             Come Back To Yourself.
           </h1>
         </FadeIn>
