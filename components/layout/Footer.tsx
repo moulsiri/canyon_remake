@@ -48,7 +48,7 @@ const Footer = () => {
       className="relative w-full lg:h-[var(--footer-height)] h-auto overflow-hidden" 
       style={{ '--footer-height': `${footerHeight}px` } as React.CSSProperties}
     >
-      <div className="static lg:fixed lg:bottom-0 lg:left-0 w-full lg:z-[-1] pointer-events-auto">
+      <div className="static lg:fixed lg:bottom-0 lg:left-0 w-full lg:z-[0] pointer-events-auto">
         <footer 
           ref={innerRef}
           className="w-full bg-[#F4F4F1] dark:bg-stone-950 pt-28 md:pt-32 pb-8 flex flex-col items-center"

@@ -25,13 +25,13 @@ const FinalJourneyCTA = () => {
 
         {/* CTA BUTTONS */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 w-full">
-          <button className="w-full sm:w-auto px-8 py-4 bg-[#b35930] hover:bg-[#9a4b27] text-white text-xs font-semibold tracking-widest uppercase transition-colors">
+          <button className="w-full sm:w-auto px-8 py-4 bg-[#b35930] hover:bg-[#9a4b27] text-white text-xs font-semibold tracking-widest uppercase transition-colors cursor-pointer">
             Find Your Journey
           </button>
-          <button className="w-full sm:w-auto px-8 py-4 bg-transparent border border-stone-800 dark:border-stone-200 text-stone-800 dark:text-stone-200 hover:bg-stone-800 hover:text-white dark:hover:bg-stone-200 dark:hover:text-stone-900 text-xs font-semibold tracking-widest uppercase transition-colors">
+          <button className="w-full sm:w-auto px-8 py-4 bg-transparent border border-stone-800 dark:border-stone-200 text-stone-800 dark:text-stone-200 hover:bg-stone-800 hover:text-white dark:hover:bg-stone-200 dark:hover:text-stone-900 text-xs font-semibold tracking-widest uppercase transition-colors cursor-pointer">
             Explore Destinations
           </button>
-          <button className="w-full sm:w-auto px-8 py-4 bg-transparent border border-stone-800 dark:border-stone-200 text-stone-800 dark:text-stone-200 hover:bg-stone-800 hover:text-white dark:hover:bg-stone-200 dark:hover:text-stone-900 text-xs font-semibold tracking-widest uppercase transition-colors">
+          <button className="w-full sm:w-auto px-8 py-4 bg-transparent border border-stone-800 dark:border-stone-200 text-stone-800 dark:text-stone-200 hover:bg-stone-800 hover:text-white dark:hover:bg-stone-200 dark:hover:text-stone-900 text-xs font-semibold tracking-widest uppercase transition-colors cursor-pointer">
             Plan Your Stay
           </button>
         </div>

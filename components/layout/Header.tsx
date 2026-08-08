@@ -19,9 +19,9 @@ export default function Header({
 
   return (
     <>
-      <header className={`${containerClass} top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 w-full transition-all duration-300 ${
+      <header className={`${containerClass} top-0 left-0 right-0 z-50 flex items-center justify-between px-4 md:px-12 w-full transition-all duration-300 ${
         isGlobal
-          ? "bg-white/80 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-xl mt-4 max-w-[calc(100%-2rem)] md:max-w-7xl mx-auto py-4 text-[var(--foreground)]"
+          ? "bg-white/80 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-xl mt-4 max-w-[calc(100%-1rem)] md:max-w-7xl mx-auto py-4 text-[var(--foreground)]"
           : "text-white py-8"
       }`}>
         <FadeIn
