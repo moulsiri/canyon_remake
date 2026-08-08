@@ -18,7 +18,7 @@ export default function Header() {
           <Image 
             src="/logo.svg" 
             alt="Canyon Ranch" 
-            width={280} 
+            width={240} 
             height={40} 
             className="w-[200px] md:w-[280px] h-auto object-contain brightness-0 invert"
             priority 

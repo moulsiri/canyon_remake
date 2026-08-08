@@ -24,13 +24,13 @@ export default function Hero() {
         </FadeIn>
         
         <FadeIn delay={0.9} yOffset={25}>
-          <h1 className="text-6xl md:text-8xl lg:text-[120px] leading-[0.9] text-white mb-6" style={{ fontFamily: "var(--font-cormorant)" }}>
+          <h1 className="text-6xl md:text-8xl lg:text-[80px] leading-[0.9] text-white mb-6" style={{ fontFamily: "var(--font-cormorant)" }}>
             Come Back To Yourself.
           </h1>
         </FadeIn>
         
         <FadeIn delay={1.2} yOffset={15}>
-          <p className="text-lg md:text-2xl font-light text-white/90 mb-16 max-w-2xl drop-shadow-lg leading-relaxed">
+          <p className="text-lg md:text-xl font-light text-white/90 mb-16 max-w-2xl drop-shadow-lg leading-relaxed">
             A Place To Pause, Restore, And Discover A Deeper Way Of Living Well.
           </p>
         </FadeIn>
