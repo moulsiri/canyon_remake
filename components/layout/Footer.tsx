@@ -1,6 +1,5 @@
 "use client";
-
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 
 const FacebookIcon = ({ className }: { className?: string }) => (
@@ -24,116 +23,144 @@ const InstagramIcon = ({ className }: { className?: string }) => (
 );
 
 const Footer = () => {
+  const [footerHeight, setFooterHeight] = useState(0);
+  const innerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const updateHeight = () => {
+      if (innerRef.current) {
+        setFooterHeight(innerRef.current.offsetHeight);
+      }
+    };
+    
+    // Initial measurement + attach observer for responsive layout shifts
+    updateHeight();
+    const ro = new ResizeObserver(updateHeight);
+    if (innerRef.current) {
+      ro.observe(innerRef.current);
+    }
+    
+    return () => ro.disconnect();
+  }, []);
+
   return (
-    <footer className="relative z-[20] w-full bg-[#F4F4F1] dark:bg-stone-950 pt-20 pb-12 flex flex-col items-center">
-      <div className="w-full max-w-[1400px] px-6 md:px-12 flex flex-col items-center">
-        {/* LOGO */}
-        <div className="mb-20 cursor-pointer">
-          <h2
-            className="text-2xl md:text-3xl text-[#b35930] tracking-widest uppercase"
-            style={{ fontFamily: "var(--font-cormorant)" }}
-          >
-            CanyonRanch.
-          </h2>
-        </div>
-
-        {/* 4-COLUMN LINK GRID */}
-        <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8 mb-20 text-left">
-          
-          {/* ... (Columns 1-3 omitted for brevity here) ... */}
-          {/* COLUMN 1: RESERVATIONS */}
-          <div className="flex flex-col gap-5">
-            <h4 className="text-xs font-semibold tracking-[0.2em] text-stone-800 dark:text-stone-200 uppercase mb-2">
-              Reservations
-            </h4>
-            <div className="flex flex-col gap-4 text-sm text-stone-600 dark:text-stone-400 font-medium">
-              <span className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer">(866) 494-9279</span>
-              <span className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer">Contact Us</span>
-              <span className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer">FAQs</span>
+    <div 
+      className="relative w-full overflow-hidden" 
+      style={{ height: footerHeight || "auto" }}
+    >
+      <div className="fixed bottom-0 left-0 w-full z-[-1] pointer-events-auto">
+        <footer 
+          ref={innerRef}
+          className="w-full bg-[#F4F4F1] dark:bg-stone-950 pt-16 md:pt-24 pb-8 flex flex-col items-center"
+        >
+          <div className="w-full max-w-[1400px] px-6 md:px-12 flex flex-col items-center">
+            {/* LOGO */}
+            <div className="mb-10 cursor-pointer">
+              <h2
+                className="text-2xl md:text-3xl text-[#b35930] tracking-widest uppercase"
+                style={{ fontFamily: "var(--font-cormorant)" }}
+              >
+                CanyonRanch.
+              </h2>
             </div>
-          </div>
 
-          {/* COLUMN 2: EXPLORE */}
-          <div className="flex flex-col gap-5">
-            <h4 className="text-xs font-semibold tracking-[0.2em] text-stone-800 dark:text-stone-200 uppercase mb-2">
-              Explore
-            </h4>
-            <div className="flex flex-col gap-4 text-sm text-stone-600 dark:text-stone-400 font-medium">
-              <span className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer">Ways to Stay</span>
-              <span className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer">Events</span>
-              <span className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer">Day Pass</span>
-              <span className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer">Group & Corporate Stays</span>
-              <span className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer">Membership</span>
-              <span className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer">Shop</span>
-              <span className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer">Blog</span>
-            </div>
-          </div>
-
-          {/* COLUMN 3: ABOUT */}
-          <div className="flex flex-col gap-5">
-            <h4 className="text-xs font-semibold tracking-[0.2em] text-stone-800 dark:text-stone-200 uppercase mb-2">
-              About
-            </h4>
-            <div className="flex flex-col gap-4 text-sm text-stone-600 dark:text-stone-400 font-medium">
-              <span className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer">About Us</span>
-              <span className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer">Meet Our Experts</span>
-              <span className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer">Leadership Team</span>
-              <span className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer">Careers</span>
-              <span className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer">Travel Advisors</span>
-            </div>
-          </div>
-
-          {/* COLUMN 4: ACTIONS & SOCIAL */}
-          <div className="flex flex-col gap-6 pt-2">
-            <div className="flex flex-col gap-6">
-              <span className="text-xs font-bold tracking-[0.15em] text-[#b35930] uppercase border-b-2 border-[#b35930] pb-1 w-max cursor-pointer hover:opacity-80 transition-opacity">
-                SIGN UP FOR EMAIL
-              </span>
-              <span className="text-xs font-bold tracking-[0.15em] text-[#b35930] uppercase border-b-2 border-[#b35930] pb-1 w-max cursor-pointer hover:opacity-80 transition-opacity">
-                SIGN UP FOR MOBILE ALERTS
-              </span>
-            </div>
-            
-            <div className="mt-6 flex flex-col gap-4">
-              <h4 className="text-xs font-semibold tracking-[0.2em] text-stone-800 dark:text-stone-200 uppercase">
-                SOCIAL
-              </h4>
-              <div className="flex items-center gap-4 text-[#b35930]">
-                <FacebookIcon className="w-5 h-5 cursor-pointer hover:opacity-75 transition-opacity" />
-                <LinkedinIcon className="w-5 h-5 cursor-pointer hover:opacity-75 transition-opacity" />
-                <InstagramIcon className="w-5 h-5 cursor-pointer hover:opacity-75 transition-opacity" />
+            {/* 4-COLUMN LINK GRID */}
+            <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8 mb-20 text-left">
+              
+              {/* COLUMN 1: RESERVATIONS */}
+              <div className="flex flex-col gap-5">
+                <h4 className="text-xs font-semibold tracking-[0.2em] text-stone-800 dark:text-stone-200 uppercase mb-2">
+                  Reservations
+                </h4>
+                <div className="flex flex-col gap-4 text-sm text-stone-600 dark:text-stone-400 font-medium">
+                  <span className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer">(866) 494-9279</span>
+                  <span className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer">Contact Us</span>
+                  <span className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer">FAQs</span>
+                </div>
               </div>
+
+              {/* COLUMN 2: EXPLORE */}
+              <div className="flex flex-col gap-5">
+                <h4 className="text-xs font-semibold tracking-[0.2em] text-stone-800 dark:text-stone-200 uppercase mb-2">
+                  Explore
+                </h4>
+                <div className="flex flex-col gap-4 text-sm text-stone-600 dark:text-stone-400 font-medium">
+                  <span className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer">Ways to Stay</span>
+                  <span className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer">Events</span>
+                  <span className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer">Day Pass</span>
+                  <span className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer">Group & Corporate Stays</span>
+                  <span className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer">Membership</span>
+                  <span className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer">Shop</span>
+                  <span className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer">Blog</span>
+                </div>
+              </div>
+
+              {/* COLUMN 3: ABOUT */}
+              <div className="flex flex-col gap-5">
+                <h4 className="text-xs font-semibold tracking-[0.2em] text-stone-800 dark:text-stone-200 uppercase mb-2">
+                  About
+                </h4>
+                <div className="flex flex-col gap-4 text-sm text-stone-600 dark:text-stone-400 font-medium">
+                  <span className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer">About Us</span>
+                  <span className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer">Meet Our Experts</span>
+                  <span className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer">Leadership Team</span>
+                  <span className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer">Careers</span>
+                  <span className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer">Travel Advisors</span>
+                </div>
+              </div>
+
+              {/* COLUMN 4: ACTIONS & SOCIAL */}
+              <div className="flex flex-col gap-6 pt-2">
+                <div className="flex flex-col gap-6">
+                  <span className="text-xs font-bold tracking-[0.15em] text-[#b35930] uppercase border-b-2 border-[#b35930] pb-1 w-max cursor-pointer hover:opacity-80 transition-opacity">
+                    SIGN UP FOR EMAIL
+                  </span>
+                  <span className="text-xs font-bold tracking-[0.15em] text-[#b35930] uppercase border-b-2 border-[#b35930] pb-1 w-max cursor-pointer hover:opacity-80 transition-opacity">
+                    SIGN UP FOR MOBILE ALERTS
+                  </span>
+                </div>
+                
+                <div className="mt-6 flex flex-col gap-4">
+                  <h4 className="text-xs font-semibold tracking-[0.2em] text-stone-800 dark:text-stone-200 uppercase">
+                    SOCIAL
+                  </h4>
+                  <div className="flex items-center gap-4 text-[#b35930]">
+                    <FacebookIcon className="w-5 h-5 cursor-pointer hover:opacity-75 transition-opacity" />
+                    <LinkedinIcon className="w-5 h-5 cursor-pointer hover:opacity-75 transition-opacity" />
+                    <InstagramIcon className="w-5 h-5 cursor-pointer hover:opacity-75 transition-opacity" />
+                  </div>
+                </div>
+              </div>
+
             </div>
+
+            {/* BOTTOM METADATA BAR */}
+            <div className="w-full flex flex-col items-center gap-6 border-t border-stone-300 dark:border-stone-700 pt-8 mt-4 text-xs font-medium text-stone-500 dark:text-stone-400">
+              <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-3 px-4">
+                <Link href="#" className="hover:text-stone-800 dark:hover:text-stone-200 transition-colors">Terms & Conditions</Link>
+                <span className="hidden sm:inline">|</span>
+                <Link href="#" className="hover:text-stone-800 dark:hover:text-stone-200 transition-colors">Accessibility</Link>
+                <span className="hidden sm:inline">|</span>
+                <Link href="#" className="hover:text-stone-800 dark:hover:text-stone-200 transition-colors">Privacy</Link>
+                <span className="hidden sm:inline">|</span>
+                <Link href="#" className="hover:text-stone-800 dark:hover:text-stone-200 transition-colors">Legal</Link>
+                <span className="hidden sm:inline">|</span>
+                <Link href="#" className="hover:text-stone-800 dark:hover:text-stone-200 transition-colors">Directory</Link>
+                <span className="hidden sm:inline">|</span>
+                <Link href="#" className="hover:text-stone-800 dark:hover:text-stone-200 transition-colors">Sitemap</Link>
+              </div>
+              
+              <Link href="#" className="hover:text-stone-800 dark:hover:text-stone-200 transition-colors">
+                Cookie Settings
+              </Link>
+
+              <p className="font-light mt-2">© 2026 Canyon Ranch. All Rights Reserved.</p>
+            </div>
+
           </div>
-
-
-        </div>
-
-        {/* BOTTOM METADATA BAR */}
-        <div className="w-full flex flex-col items-center gap-6 border-t border-stone-300 dark:border-stone-700 pt-8 mt-4 text-xs font-medium text-stone-500 dark:text-stone-400">
-          <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-3 px-4">
-            <Link href="#" className="hover:text-stone-800 dark:hover:text-stone-200 transition-colors">Terms & Conditions</Link>
-            <span className="hidden sm:inline">|</span>
-            <Link href="#" className="hover:text-stone-800 dark:hover:text-stone-200 transition-colors">Accessibility</Link>
-            <span className="hidden sm:inline">|</span>
-            <Link href="#" className="hover:text-stone-800 dark:hover:text-stone-200 transition-colors">Privacy</Link>
-            <span className="hidden sm:inline">|</span>
-            <Link href="#" className="hover:text-stone-800 dark:hover:text-stone-200 transition-colors">Legal</Link>
-            <span className="hidden sm:inline">|</span>
-            <Link href="#" className="hover:text-stone-800 dark:hover:text-stone-200 transition-colors">Directory</Link>
-            <span className="hidden sm:inline">|</span>
-            <Link href="#" className="hover:text-stone-800 dark:hover:text-stone-200 transition-colors">Sitemap</Link>
-          </div>
-          
-          <Link href="#" className="hover:text-stone-800 dark:hover:text-stone-200 transition-colors">
-            Cookie Settings
-          </Link>
-
-          <p className="font-light mt-2">© 2026 Canyon Ranch. All Rights Reserved.</p>
-        </div>
-
+        </footer>
       </div>
-    </footer>
+    </div>
   );
 };
 
