@@ -3,7 +3,7 @@ import React from "react";
 
 const IntroImageGallery = () => {
   return (
-    <div className="mt-50 w-full">
+    <div className="mt-55 w-full">
       <div>
         <div className="w-full aspect-[16/9] md:aspect-[21/9] relative  shadow-2xl bg-yellow-200 flex flex-col-reverse ">
           <div className="absolute bg-gradient-to-r from-white to-transparent w-1/2 h-full top-0 left-0 z-10 pointer-events-none"></div>

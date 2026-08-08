@@ -35,7 +35,7 @@ export default function SecondSection() {
   return (
     <section
       ref={containerRef}
-      className="relative z-[20] w-full min-h-screen bg-[#F4F4F1] dark:bg-stone-950 flex flex-col items-center overflow-hidden isolation-isolate rounded-t-3xl shadow-[0_-20px_50px_rgba(0,0,0,0.5)] pt-40 pb-48 md:pb-64"
+      className="relative z-[20] w-full min-h-screen bg-[#F4F4F1] dark:bg-stone-950 flex flex-col items-center isolation-isolate rounded-t-3xl shadow-[0_-20px_50px_rgba(0,0,0,0.5)] pt-40 pb-2"
     >
       <div
         ref={contentRef}
@@ -52,6 +52,8 @@ export default function SecondSection() {
         </h2>
      
         <IntroImageGallery/>
+        {/* Spacer to stretch SecondSection's height so it properly contains the absolutely positioned images dangling out of the gallery */}
+        <div className="w-full h-48 md:h-80"></div>
       </div>
     </section>
   );

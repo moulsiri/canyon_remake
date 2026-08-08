@@ -2,6 +2,8 @@ import Header from "@/components/layout/Header";
 import Hero from "@/components/sections/Hero";
 import SecondSection from "@/components/sections/SecondSection";
 import GlobalHeader from "@/components/layout/GlobalHeader";
+import ThirdSection from "@/components/sections/ThirdSection";
+import FourthSection from "@/components/sections/FourthSection";
 
 export default function Home() {
   return (
@@ -15,6 +17,8 @@ export default function Home() {
       </div>
       
       <SecondSection />
+      <ThirdSection/>
+      <FourthSection/>
     </main>
   );
 }
