@@ -5,6 +5,8 @@ import GlobalHeader from "@/components/layout/GlobalHeader";
 import ThirdSection from "@/components/sections/ThirdSection";
 import FourthSection from "@/components/sections/FourthSection";
 import FifthSection from "@/components/sections/FifthSection";
+import SixthSection from "@/components/sections/SixthSection";
+import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (
@@ -21,6 +23,10 @@ export default function Home() {
       <ThirdSection/>
       <FourthSection/>
       <FifthSection/>
+      <SixthSection/>
+      
+      {/* Global Footer */}
+      <Footer />
     </main>
   );
 }
