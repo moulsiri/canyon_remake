@@ -15,7 +15,11 @@ export default function Header({
 }) {
   return (
     <>
-      <header className={`${containerClass} top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-8 w-full ${isGlobal ? "text-[var(--foreground)]" : "text-white"}`}>
+      <header className={`${containerClass} top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 w-full transition-all duration-300 ${
+        isGlobal
+          ? "bg-white/80 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-xl mt-4 max-w-[calc(100%-2rem)] md:max-w-7xl mx-auto py-4 text-[var(--foreground)]"
+          : "text-white py-8"
+      }`}>
         <FadeIn
           delay={0.1}
           className="hidden md:flex gap-8 text-[13px] tracking-wide font-light"
@@ -32,7 +36,7 @@ export default function Header({
         <FadeIn delay={0.2} className="absolute left-1/2 -translate-x-1/2">
           <Link href="#">
             <Logo 
-              className={`w-[200px] md:w-[280px] h-auto object-contain ${logoClass}`}
+              className={`w-[120px] md:w-[180px] h-auto object-contain ${logoClass}`}
             />
           </Link>
         </FadeIn>
