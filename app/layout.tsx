@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Montserrat } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/animations/SmoothScroll";
+import GlobalContextProvider from "@/context/GlobalContext";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -17,7 +18,8 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: "Canyon Ranch | The Well Way Of Life",
-  description: "A Place To Pause, Restore, And Discover A Deeper Way Of Living Well.",
+  description:
+    "A Place To Pause, Restore, And Discover A Deeper Way Of Living Well.",
 };
 
 export default function RootLayout({
@@ -26,12 +28,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${montserrat.variable}`}>
-      <body style={{ fontFamily: "var(--font-montserrat)" }} className="antialiased bg-black text-white selection:bg-white/20">
-        <SmoothScroll>
-          {children}
-        </SmoothScroll>
-      </body>
-    </html>
+    <GlobalContextProvider>
+      <html
+        lang="en"
+        className={`${cormorant.variable} ${montserrat.variable}`}
+      >
+        <body
+          style={{ fontFamily: "var(--font-montserrat)" }}
+          className="antialiased bg-black text-white selection:bg-white/20"
+        >
+          <SmoothScroll>{children}</SmoothScroll>
+        </body>
+      </html>
+    </GlobalContextProvider>
   );
 }
