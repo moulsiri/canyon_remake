@@ -48,16 +48,26 @@ export default function Header({
         <FadeIn delay={0.3} className="hidden md:flex items-center gap-8">
           <a
             href="tel:8664949279"
-            className="text-[13px] tracking-wide hover:opacity-70 transition-opacity"
+            className={`text-[11px] tracking-[0.2em] transition-opacity uppercase font-semibold ${isGlobal ? 'text-stone-500 hover:text-black' : 'text-white/80 hover:text-white'}`}
           >
-            (866)494-9279
+            (866) 494-9279
           </a>
-          <button
-            onClick={() => setIsBookingModalOpen(true)}
-            className="bg-[#b35930] hover:bg-[#964a27] transition-colors text-white px-8 py-3.5 text-xs tracking-widest uppercase font-medium"
-          >
-            Book Now
+          
+          <button className={`cursor-pointer text-[11px] tracking-[0.2em] transition-opacity uppercase font-semibold flex items-center gap-2 ${isGlobal ? 'text-stone-500 hover:text-black' : 'text-white/80 hover:text-white'}`}>
+            <span className="w-4 h-4 rounded-full border border-current opacity-80 flex items-center justify-center">
+              <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </span>
+            Sign In / Join
           </button>
+          
+          {isGlobal && (
+            <button
+              onClick={() => setIsBookingModalOpen(true)}
+              className="bg-[#b35930] hover:bg-[#964a27] transition-colors text-white px-7 py-3 text-[11px] tracking-widest uppercase font-bold cursor-pointer"
+            >
+              Book Now
+            </button>
+          )}
         </FadeIn>
       </header>
     </>
