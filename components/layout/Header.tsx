@@ -1,36 +1,38 @@
 import Link from "next/link";
-import Image from "next/image";
+import Logo from "@/components/ui/Logo";
 import FadeIn from "@/components/animations/FadeIn";
 import SubHeader from "./SubHeader";
 import OpenSubHeaderButton from "./OpenSubHeaderButton";
 
-export default function Header() {
+export default function Header({ 
+  containerClass = "absolute",
+  logoClass = "",
+  isGlobal = false
+}: { 
+  containerClass?: string;
+  logoClass?: string;
+  isGlobal?: boolean;
+}) {
   return (
     <>
-      <header className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-8 w-full text-white">
+      <header className={`${containerClass} top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-8 w-full ${isGlobal ? "text-[var(--foreground)]" : "text-white"}`}>
         <FadeIn
           delay={0.1}
           className="hidden md:flex gap-8 text-[13px] tracking-wide font-light"
         >
-          <OpenSubHeaderButton name={"Destinations"} />
-          <OpenSubHeaderButton name={"Experience"} />
+          <OpenSubHeaderButton name={"Destinations"} isGlobal={!!isGlobal} />
+          <OpenSubHeaderButton name={"Experience"} isGlobal={!!isGlobal} />
 
           <Link href="#" className="hover:opacity-70 transition-opacity">
             Offers
           </Link>
-          <OpenSubHeaderButton name={"Shop"} />
+          <OpenSubHeaderButton name={"Shop"} isGlobal={!!isGlobal} />
         </FadeIn>
 
         <FadeIn delay={0.2} className="absolute left-1/2 -translate-x-1/2">
           <Link href="#">
-            {/* Using next/image for SVG */}
-            <Image
-              src="/logo.svg"
-              alt="Canyon Ranch"
-              width={240}
-              height={40}
-              className="w-[200px] md:w-[280px] h-auto object-contain brightness-0 invert"
-              priority
+            <Logo 
+              className={`w-[200px] md:w-[280px] h-auto object-contain ${logoClass}`}
             />
           </Link>
         </FadeIn>
@@ -50,7 +52,6 @@ export default function Header() {
           </Link>
         </FadeIn>
       </header>
-      <SubHeader />
     </>
   );
 }

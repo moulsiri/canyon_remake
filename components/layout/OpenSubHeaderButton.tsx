@@ -1,16 +1,16 @@
 "use client";
 import { useGlobalContext } from "@/context/GlobalContext";
 
-const OpenSubHeaderButton = ({ name }: { name: string }) => {
+const OpenSubHeaderButton = ({ name,isGlobal }: { name: string,isGlobal:boolean }) => {
   const { isActive, setIsActive } = useGlobalContext();
   return (
     <button
-      className="hover:opacity-70 transition-opacity cursor-pointer"
+      className={` hover:opacity-70 transition-opacity cursor-pointer`}
       onClick={() => {
         setIsActive(!isActive);
       }}
     >
-      {name}
+     <span className={`${isGlobal?"text-[var(--foreground)]":""}`}>{name}</span> 
     </button>
   );
 };

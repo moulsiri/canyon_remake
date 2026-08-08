@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Montserrat } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/animations/SmoothScroll";
 import GlobalContextProvider from "@/context/GlobalContext";
+import SubHeader from "@/components/layout/SubHeader";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -38,6 +39,7 @@ export default function RootLayout({
           className="antialiased bg-black text-white selection:bg-white/20"
         >
           <SmoothScroll>{children}</SmoothScroll>
+          <SubHeader />
         </body>
       </html>
     </GlobalContextProvider>
