@@ -11,25 +11,6 @@ export default function SecondSection() {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-
-    // const ctx = gsap.context(() => {
-    //   // Pin the section when it reaches the top of the viewport
-    //   ScrollTrigger.create({
-    //     trigger: containerRef.current,
-    //     start: "top top",
-    //     end: "+=1500", // How long the pin lasts in px of scroll
-    //     pin: true,
-    //     animation: gsap.to(contentRef.current, {
-    //       y: -100, // Move content up slightly
-    //       opacity: 0.1,
-    //       scale: 0.95,
-    //       ease: "none",
-    //     }),
-    //     scrub: 1,
-    //   });
-    // }, containerRef);
-
-    // return () => ctx.revert();
   }, []);
 
   return (

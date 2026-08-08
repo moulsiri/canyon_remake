@@ -5,7 +5,7 @@ import StateOfMind from '../ui/StateOfMind'
 
 const ThirdSection = () => {
   return (
-    <section className="relative z-[20] w-full min-h-screen bg-[#F4F4F1] dark:bg-stone-950 pt-16 md:pt-24">
+    <section className="relative z-[20] w-full min-h-screen bg-[#F4F4F1] dark:bg-stone-950 flex flex-col pt-16 md:pt-24 pb-16">
       {/* Content for the third section goes here */}
       <div className="flex flex-col items-center w-full px-6 md:px-12 max-w-7xl mx-auto">
       <p className="text-xs md:text-sm tracking-[0.25em] font-medium uppercase mb-6 text-stone-800 dark:text-stone-100  drop-shadow-md">
