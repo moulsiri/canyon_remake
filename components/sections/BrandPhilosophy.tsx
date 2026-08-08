@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import IntroImageGallery from "../ui/IntroImageGallery";
 
-export default function SecondSection() {
+export default function BrandPhilosophy() {
   const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 

@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { CheckCircle2, Play, Copy } from "lucide-react";
 
-const SixthSection = () => {
+const FinalJourneyCTA = () => {
   return (
     <section className="relative w-full z-[20] bg-white dark:bg-stone-950 py-24 flex flex-col items-center">
       
@@ -117,4 +117,4 @@ const SixthSection = () => {
   );
 };
 
-export default SixthSection;
+export default FinalJourneyCTA;

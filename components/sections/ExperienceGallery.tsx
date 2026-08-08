@@ -32,7 +32,7 @@ const pillars = [
   },
 ];
 
-const FourthSection = () => {
+const ExperienceGallery = () => {
   return (
     <section className="relative z-[20] w-full min-h-screen bg-[#F4F4F1] dark:bg-stone-950 py-16 md:py-24">
       {/* Restored Header Block */}
@@ -105,4 +105,4 @@ const FourthSection = () => {
   );
 };
 
-export default FourthSection;
+export default ExperienceGallery;

@@ -1,11 +1,11 @@
 import Header from "@/components/layout/Header";
 import Hero from "@/components/sections/Hero";
-import SecondSection from "@/components/sections/SecondSection";
+import BrandPhilosophy from "@/components/sections/BrandPhilosophy";
 import GlobalHeader from "@/components/layout/GlobalHeader";
-import ThirdSection from "@/components/sections/ThirdSection";
-import FourthSection from "@/components/sections/FourthSection";
-import FifthSection from "@/components/sections/FifthSection";
-import SixthSection from "@/components/sections/SixthSection";
+import IntentionsSection from "@/components/sections/IntentionsSection";
+import ExperienceGallery from "@/components/sections/ExperienceGallery";
+import DestinationsGrid from "@/components/sections/DestinationsGrid";
+import FinalJourneyCTA from "@/components/sections/FinalJourneyCTA";
 import Footer from "@/components/layout/Footer";
 
 export default function Home() {
@@ -20,11 +20,11 @@ export default function Home() {
           <Hero />
         </div>
         
-        <SecondSection />
-        <ThirdSection/>
-        <FourthSection/>
-        <FifthSection/>
-        <SixthSection/>
+        <BrandPhilosophy />
+        <IntentionsSection />
+        <ExperienceGallery />
+        <DestinationsGrid />
+        <FinalJourneyCTA />
       </main>
       
       {/* Global Reveal Footer outside of the bg-black main wrapper */}

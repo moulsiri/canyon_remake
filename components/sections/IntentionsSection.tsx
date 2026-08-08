@@ -3,7 +3,7 @@
 import React from 'react'
 import StateOfMind from '../ui/StateOfMind'
 
-const ThirdSection = () => {
+const IntentionsSection = () => {
   return (
     <section className="relative z-[20] w-full min-h-screen bg-[#F4F4F1] dark:bg-stone-950 flex flex-col pt-16 md:pt-24 pb-16">
       {/* Content for the third section goes here */}
@@ -24,4 +24,4 @@ const ThirdSection = () => {
   )
 }
 
-export default ThirdSection
+export default IntentionsSection
