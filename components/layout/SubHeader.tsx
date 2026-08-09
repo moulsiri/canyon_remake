@@ -12,7 +12,7 @@ const SubHeader = () => {
         style={{ transition: "all cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s" }}
         className={`w-full fixed top-0 left-0 h-screen z-[100] ${isActive ? "" : "pointer-events-none"}`}
       >
-        <div className="flex justify-between relative items-center py-4 px-8 z-[45]">
+        <div className="flex justify-between relative items-center py-8 px-8 z-[45]">
           <div></div>
           <div>
               <button

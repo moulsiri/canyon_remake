@@ -19,6 +19,8 @@ type GlobalContextType = {
 
   isActive: boolean;
   setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
+  activeSubHeader: string | null;
+  setActiveSubHeader: React.Dispatch<React.SetStateAction<string | null>>;
   isBookingModalOpen: boolean;
   setIsBookingModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
@@ -44,6 +46,7 @@ export default function GlobalContextProvider({
   children: React.ReactNode;
 }) {
   const [isActive, setIsActive] = useState(false);
+  const [activeSubHeader, setActiveSubHeader] = useState<string | null>(null);
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [loadedCount, setLoadedCount] = useState<number>(0);
@@ -79,6 +82,8 @@ export default function GlobalContextProvider({
         isMobile,
         isActive,
         setIsActive,
+        activeSubHeader,
+        setActiveSubHeader,
         isBookingModalOpen,
         setIsBookingModalOpen,
       }}
