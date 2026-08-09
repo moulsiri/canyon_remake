@@ -124,7 +124,7 @@ const IntroImageGallery = () => {
             <div id="gallery_text_wrapper">
               <Paragraph
                 paragraph="At Canyon Ranch, Health Becomes Personal. Guided By Science, Inspired By Nature, And Shaped Around You, Every Experience Is Designed To Help You Feel Better, Live Better, And Carry That Feeling Home."
-                className="text-stone-800 dark:text-stone-200 text-sm md:text-base font-medium leading-relaxed tracking-wide"
+                className="text-stone-800 dark:text-stone-200 text-sm md:text-base font-medium leading-relaxed tracking-wide justify-center md:justify-end"
               />
             </div>
 

@@ -60,8 +60,8 @@ export default function BrandPhilosophy() {
         >
           Wellness is not a destination. It's a way of life.
         </h2>
-     
-        <IntroImageGallery/>
+
+        <IntroImageGallery />
         {/* Spacer to stretch section height for absolutely positioned desktop images */}
         <div className="hidden lg:block w-full h-80"></div>
       </div>

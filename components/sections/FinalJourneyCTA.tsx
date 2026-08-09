@@ -1,25 +1,68 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { CheckCircle2, Play, Copy } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const FinalJourneyCTA = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const eyebrowRef = useRef<HTMLParagraphElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const descriptionRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: contentRef.current,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      tl.fromTo(
+        eyebrowRef.current,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }
+      )
+        .fromTo(
+          titleRef.current,
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" },
+          "-=0.6"
+        )
+        .fromTo(
+          descriptionRef.current,
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" },
+          "-=0.6"
+        );
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="relative w-full z-[20] bg-white dark:bg-stone-950 py-24 flex flex-col items-center">
+    <section ref={containerRef} className="relative w-full z-[20] bg-white dark:bg-stone-950 py-24 flex flex-col items-center">
       
       {/* FINAL CTA BLOCK */}
-      <div className="w-full flex flex-col items-center text-center px-6 md:px-12 max-w-4xl mx-auto mb-32">
-        <p className="text-xs md:text-sm tracking-[0.25em] font-medium uppercase mb-6 text-stone-800 dark:text-stone-400 drop-shadow-sm">
+      <div ref={contentRef} className="w-full flex flex-col items-center text-center px-6 md:px-12 max-w-4xl mx-auto mb-32">
+        <p ref={eyebrowRef} className="text-xs md:text-sm tracking-[0.25em] font-medium uppercase mb-6 text-stone-800 dark:text-stone-400 drop-shadow-sm">
           YOUR JOURNEY STARTS HERE
         </p>
         <h2
+          ref={titleRef}
           className="text-5xl md:text-6xl lg:text-7xl text-stone-900 dark:text-stone-100 mb-8 tracking-tight transition-colors"
           style={{ fontFamily: "var(--font-cormorant)" }}
         >
           Where will you begin?
         </h2>
-        <p className="text-stone-600 dark:text-stone-300 text-base md:text-lg font-medium leading-relaxed tracking-wide mb-12 max-w-2xl">
+        <p ref={descriptionRef} className="text-stone-600 dark:text-stone-300 text-base md:text-lg font-medium leading-relaxed tracking-wide mb-12 max-w-2xl">
           Find the place, experience, and path that feels right for you.
         </p>
 

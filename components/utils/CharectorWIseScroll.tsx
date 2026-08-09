@@ -18,7 +18,7 @@ export default function Paragraph({
   return (
     <p
       ref={container}
-      className={`${className} flex flex-wrap justify-center md:justify-end `}
+      className={`${className} flex flex-wrap`}
     >
       {words.map((word, i) => {
         const start = i / words.length;
